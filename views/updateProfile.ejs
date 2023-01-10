@@ -1,0 +1,25 @@
+<h1 class="mt-2 text-center">Update Profile</h1>
+
+<form action="/profile/update/<%= profileUser.id %>" method="post" class="w-75 m-auto mt-4 text-center">
+
+        <div class="col-12 mt-4">
+          <input required type="text" class="form-control" value="<%= profileUser.name %>" name="name" placeholder="Name" aria-label="First name">
+        </div>
+        <div class="col-12 mt-4">
+          <input required type="text" value="<%= profileUser.mobile %>" name="mobile" class="form-control" placeholder="mobile" aria-label="Last name">
+        </div>
+
+        <div class="col-12 mt-4">
+          <input required type="email" value="<%= profileUser.email %>" name="email" class="form-control" placeholder="email" aria-label="Last name">
+        </div>
+        <% if(locals.user.role == "admin"){%>
+            <div class="col-12 mt-4">
+                <input required type="text" value="<%= profileUser.equity %>" name="equity" class="form-control" placeholder="equity" aria-label="Last name">
+              </div>
+              <div class="col-12 mt-4">
+                <input  <% if(profileUser.role == "admin"){%> disabled <%}%> required type="text" value="<%= profileUser.role %>" name="role" class="form-control" placeholder="role" aria-label="Last name">
+              </div>
+        <% } %>
+
+      <button class="btn btn-dark mt-5">Update</button>
+</form>

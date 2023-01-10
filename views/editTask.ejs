@@ -1,0 +1,27 @@
+ <div class="edit-task">
+      <div class="custom-card mt-5">
+        <h4><%= task.title %></h4>
+        <small>Assigned At: <%= task.createdAt %></small>
+        <p><%= task.desc %></p>
+        <% if(task.status == 'done'){%>
+          <small>Completed At: <%= task.updatedAt %></small>
+       <% } %>
+        <div class="status <%= task.status %>"><%= task.status %></div>
+    </div>
+
+  <form action="/tasks/editTask/<%= task.id %>" method="post">
+    <select <% if(task.status == 'done' && user.role != 'admin'){%>  disabled <% } %> class="form-select w-50 mx-auto mt-5 mb-5" aria-label="Default select example" name="status">
+      <option <% if(task.status == 'done'){%>  selected <% } %> value="done">Done</option>
+      <option <% if(task.status == 'assigned'){%>  selected <% } %> value="assigned">Assigned</option>
+      <option <% if(task.status == 'pending'){%>  selected <% } %> value="pending">Pending</option>
+    </select>
+
+    <select <% if(locals.user.role != "admin"){ %> <%= "disabled" %><%}%> style="text-transform: capitalize;" id="person" class="form-select w-50 mx-auto mt-4 mb-2" aria-label="Default select example" name="assigned_to">
+      <% for(i of users){ %>
+          <option <% if(i.mobile == person){ %> <%= "selected" %><%}%> style="text-transform: capitalize;" value="<%= i.mobile %>"><%= i.name %> <%= i.mobile %></option>
+          <% } %>
+    </select>
+
+    <button type="submit" class="btn btn-dark">Update Status</button>
+  </form>
+     </div>

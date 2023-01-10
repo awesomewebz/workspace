@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 mt-4">
+            <select class="form-select " aria-label="Default select example" id="monthR"> 
+                <% months.forEach((val, index)=>{ %>
+                  <option <% if(index == month){ %> selected <% } %> value=<%= index %>><%= val %></option>
+                <% }) %>
+              </select>
+        </div>
+        <div class="col-6 mt-4">
+            <select class="form-select " aria-label="Default select example" id="yearR"> 
+                <% for(let i = startYear; i<= year; i++){ %>
+                <option <% if(i == rYear){ %> selected <% } %> value="<%= i%>"><%= i%></option>
+                <% } %>
+              </select>
+        </div>
+      </div>
+      <select id="employeeR" <% if(locals.user.role != "admin"){ %> <%= "disabled" %><%}%> style="text-transform: capitalize;" id="person" class="form-select w-50 mx-auto mt-4 mb-2" aria-label="Default select example" name="status">
+        <% for(i of users){ %>
+            <option <% if(i.mobile == userR.mobile){ %> <%= "selected" %><%}%> style="text-transform: capitalize;" value="<%= i.mobile %>"><%= i.name %> <%= i.mobile %></option>
+            <% } %>
+      </select>
+
+  <h1 class="text-center mt-3" style="font-size: 50px; color: #251D3A; font-weight: 700;"> <span style="color: #FF7B54;"><%= hours %></span> Hours </h1>
+
+
+
+    <h2 class="text-center my-3 text-secondary">Work Report</h2>
+    <div class="work-card-container">
+        <% if(works.length == 0){%>
+            <h3 class="text-center h5 text-danger">Don't Have Work To Show!</h3>
+        <%} else {
+            for(i of works){
+            %>
+        <div class="custom-work-card">
+            <div class="work-hour"><%= i.hours %></div>
+            <small class="text-danger"><%= i.createdAt %></small>
+            <p><%= i.work_desc %></p>
+        </div>
+        <% }} %>
+     </div>
+
+   </div>
+
+</div>
+
+<script src="/js/reportH.js"></script>

@@ -1,0 +1,29 @@
+<div class="profile">
+    <a href="/profile/update/<%= profileUser.id %>">
+        <img class="profile-img" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="username">
+    </a>
+    <h1 class="mt-2 text-secondary" style="text-transform: capitalize;"><%= profileUser.name %></h1>
+    <h1 style="font-size: 2.5rem;" class="mt-2 mb-4"><%= profileUser.equity %>% <span class="text-success">Equity</span></h1>
+    <div class="table-responsive">
+     <table class="table table-dark">
+        <tbody>
+            <tr>
+                <th>Email</th>
+                <td><%= profileUser.email %></td>
+            </tr>
+            <tr>
+                <th>Mobile</th>
+                <td><%= profileUser.mobile %></td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td><%= profileUser.role %></td>
+            </tr>
+            <tr>
+                <th>Joining Date</th>
+                <td><%= profileUser.createdAt %></td>
+            </tr>
+        </tbody>
+     </table>
+    </div> 
+  </div>

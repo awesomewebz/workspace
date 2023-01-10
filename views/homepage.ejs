@@ -1,0 +1,48 @@
+      <!-- progress bars -->
+   <div class="target-progress">
+      <h1 class="text-center mt-4 text-secondary h3">Hi <span style="text-transform: capitalize;"><%= user.name %>!</span> You Have Completed <%= hourPer %>% Working Hours This Month</h1>
+      <div class="progress pBar" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar bg-success" style="width: <%= hourPer %>%"></div>
+      </div>
+      <h2 class="text-secondary text-center mt-2"><%= hours %> Hours | <%= target %></h2>
+   </div>
+
+   <div class="row">
+    <div class="col-lg-8 report-work px-5 pb-4">
+        <h2 class="text-center my-4 text-secondary">Submit Report</h2>
+        <form action="/report/createReport" method="post">
+            <div class="row">
+                <div class="col">
+                  <p class="text-secondary">Time From</p>
+                  <input required type="time" name="time_from" class="form-control" placeholder="Time From" aria-label="First name">
+                </div>
+                <div class="col">
+                    <p class="text-secondary">Time To</p>
+                  <input required type="time" name="time_to" class="form-control" placeholder="Time To" aria-label="Last name">
+                </div>
+              </div>
+              <p class="mt-3">Write report on your work...</p>
+              <textarea required name="work_desc" class="form-control"  rows="3"></textarea>
+              <button class="btn btn-dark mt-4">Save Report</button>
+        </form>
+      
+    </div>
+    <div class="col-lg-4 custom-card-container">
+        <h2 class="text-center my-4 text-secondary">Assigned Task</h2>
+        <% if(tasks.length < 1 ){ %>
+          <h3 class="text-center h5 text-success">You Don't Have Any Pending Work</h3>
+        <%}else{ 
+          for(i of tasks){
+          %>
+          <a style="text-decoration: none; color: black;" 
+          href="/tasks/edit-task/<%= i.id %>">
+        <div class="custom-card">
+            <h4><%= i.title %></h4>
+            <small><%= i.createdAt %></small>
+            <p><%= i.desc %></p>
+            <div style="text-transform: capitalize;" class="status <%= i.status %>"><%= i.status %></div>
+        </div>
+          </a>
+        <%}}%>
+    </div>
+   </div>

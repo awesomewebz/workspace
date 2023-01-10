@@ -1,0 +1,46 @@
+<div class="table-responsive">
+<table class="table table-dark mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Equity</th>
+        <th scope="col">Role</th>
+        <th scope="col">WIM</th>
+        <th scope="col">AWIM</th>
+        <th scope="col">Profile</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <% for(let i = 0; i<users.length; i++){ %>
+        <tr>
+          <th scope="row"><%= i+1 %></th>
+          <td><%= users[i].name %></td>
+          <td><%= users[i].email %></td>
+          <td><%= users[i].mobile %></td>
+          <td><%= users[i].equity %></td>
+          <td><%= users[i].role %></td>
+          <td><%= users[i].hours %></td>
+          <td><%= users[i].avgHour %></td>
+          <td style="text-align: center;"> <a  href="/profile/profile?id=<%= users[i].id %>"><img style="width: 30px; margin-left: -25px;" src="https://cdn-icons-png.flaticon.com/512/2202/2202112.png" alt="profile"></a> </td>
+          <td>
+            <img data-mobile="<%= users[i].mobile %>" data-id="<%= users[i].id %>" style="width: 30px; cursor: pointer;" src="https://cdn-icons-png.flaticon.com/512/3687/3687412.png" alt="delete">
+          </td>
+        </tr>
+      <% } %>
+      
+    </tbody>
+  </table>
+</div>
+
+<div class="delete-box" id="delBox">
+  <p class="mdelp">Enter Mobile Number <b style="color: #DC0000;" id="mobileNum"></b> to delete account</p>
+    <input style="display: block; margin: auto;" class="form-control w-in-d" type="text" id="deleteInput" placeholder="Enter The Shown Number....."> 
+    <br>
+    <button class="mt-4 mx-4" id="delBtn">Delete Account</button> 
+    <button class="mx-4" id="calBtn">Cancel</button>
+</div>
+<script src="/js/delete.js"></script>

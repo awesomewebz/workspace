@@ -1,0 +1,172 @@
+*{
+    box-sizing: border-box;
+    
+}
+body{
+    overflow-x: hidden;
+}
+.logo{
+    width: 50px;
+    border-radius: 50%;
+}
+.landing-head{
+    text-align: center;
+    margin-top: 200px;
+}
+.land-div{
+    text-align: center;
+}
+
+.land-div button{
+    margin-top: 40px;
+}
+
+.pBar{
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+/* custom-card */
+.custom-card-container, .work-card-container{
+    height: 400px;
+    overflow-y: scroll;
+}
+.custom-card{
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px 20px;
+    padding-top: 50px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.custom-card h4{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(63, 61, 61);
+}
+.custom-card small{
+    color: rgb(175, 174, 174);
+}
+.custom-card .status{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* background-color: rgb(61, 148, 3); */
+    color: white;
+    padding: 7px 10px;
+    text-transform: capitalize;
+}
+.edit-task{
+    text-align: center;
+}
+
+/* custom work card */
+.custom-work-card{
+    width: 90%;
+    margin: 10px auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    padding-left: 80px;
+    
+}
+.custom-work-card .work-hour{
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgb(41, 39, 39);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+.custom-work-card p{
+    text-align: justify;
+    line-height: 1.3;
+    font-size: 14px;
+    color: #777;
+}
+
+/* profile */
+.profile{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+.profile-img{
+    display: block;
+    width: 200px;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.done{
+    background-color: #3CCF4E;
+}
+.assigned{
+    background-color: #579BB1;
+}
+.pending{
+    background-color: #FF7B54;
+}
+
+/* style delete box */
+.delete-box{
+    position: absolute;
+    width: 60%;
+    /* height: 200px; */
+    background-color: black;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+    padding: 40px 20px;
+    display: none;
+}
+#calBtn{
+    background-color: #777;
+    color: aliceblue;
+    outline: none;
+    border: none;
+    padding: 7px 10px;
+}
+#delBtn{
+    background-color: #DC0000;
+    color: aliceblue;
+    outline: none;
+    border: none;
+    padding: 7px 10px;
+}
+.mdelp{
+    font-size: 22px;
+}
+.w-in-d{
+    width: 75%;
+}
+@media only screen and (max-width: 600px) {
+    .delete-box{
+        width: 90%;
+        top: 40%;
+    }
+    .mdelp{
+        font-size: 18px;
+    }
+    .w-in-d{
+        width: 100%;
+    }
+    .work-card-container {
+        height: 250px;
+    }
+  }
+  

@@ -1,0 +1,57 @@
+
+   <div class="row">
+    <select <% if(locals.user.role != "admin"){ %> <%= "disabled" %><%}%> style="text-transform: capitalize;" id="person" class="form-select w-50 mx-auto mt-4 mb-2" aria-label="Default select example" name="status">
+        <% for(i of users){ %>
+            <option <% if(i.mobile == person){ %> <%= "selected" %><%}%> style="text-transform: capitalize;" value="<%= i.mobile %>"><%= i.name %> <%= i.mobile %></option>
+            <% } %>
+      </select>
+  <div class="col-lg-7">
+      <h2 class="text-center my-2 text-secondary">Work Report</h2>
+      <div class="work-card-container">
+        <% if(works.length == 0){%>
+            <h3 class="text-center h5 text-danger">You Didn't  Do Any Work Till Now!</h3>
+        <%} else {
+            for(i of works){
+            %>
+        <div class="custom-work-card">
+            <div class="work-hour"><%= i.hours %></div>
+            <small class="text-danger"><%= i.createdAt %></small>
+            <p><%= i.work_desc %></p>
+        </div>
+        <% }} %>
+     </div>
+
+  </div>
+  <div class="col-lg-5 ">
+    <h2 class="text-center my-2 text-secondary">Tasks</h2>
+      <div class="custom-card-container">
+        <select id="task" class="form-select w-50 mx-auto mt-5 mb-5" aria-label="Default select example" name="status">
+            <option value="">Select Task Status</option>
+            <option value="all">all</option>
+            <option value="done">Done</option>
+            <option value="assigned">Assigned</option>
+            <option value="pending">Pending</option>
+          </select>
+        <% if(tasks.length < 1 ){ %>
+            <h3 class="text-center h5 text-success">Tasks Not Found!</h3>
+          <%}else{ 
+            for(i of tasks){
+            %>
+          <a style="text-decoration: none; color: black;" 
+          href="/tasks/edit-task/<%= i.id %>">
+            <div class="custom-card">
+                <h4><%= i.title %></h4>
+                <small>Assigned At: <%= i.createdAt %></small>
+                <p><%= i.desc %></p>
+                <div style="text-transform: capitalize;" class="status <%= i.status %>"><%= i.status %></div>
+                <% if(i.status == 'done'){%>
+                    <small>Completed At: <%= i.updatedAt %></small>
+                 <% } %>
+            </div>
+          </a>
+          <%}}%>
+      
+    </div>
+   </div>
+  </div>
+   <script src="/js/report.js"></script>

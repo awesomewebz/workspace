@@ -1,0 +1,24 @@
+ <h1 class="mt-2 text-center">Assign Task</h1>
+
+    <form action="/tasks/assignTask" method="post" class="w-75 m-auto mt-4 text-center">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 mt-4">
+              <input required name="title" type="text" class="form-control" placeholder="Title" aria-label="title">
+            </div>
+            <div class="col-sm-12 col-md-6 mt-4">
+                <select style="text-transform: capitalize;" required class="form-select " aria-label="Default select example" name="assigned_to">
+                    
+                    <option value="">Select employee</option>
+                    <% for(i of users){ %>
+                    <option style="text-transform: capitalize;" value="<%= i.mobile %>"><%= i.name %> <%= i.mobile %></option>
+                    <% } %>
+                   
+                  </select>
+            </div>
+          </div>
+
+          <p class="mt-3">Write Task Description</p>
+              <textarea required name="desc" class="form-control"  rows="3"></textarea>
+
+          <button type="submit" class="btn btn-dark mt-5">Assign</button>
+    </form>
